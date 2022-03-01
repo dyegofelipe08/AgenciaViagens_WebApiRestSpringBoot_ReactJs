@@ -4,7 +4,7 @@
  
  Se trata de uma aplicação web para uma agência de viagens.
  
- ##Tecnologias utilizadas:
+ ## Tecnologias utilizadas:
  
  ### Java;
  ### Spring Boot;
