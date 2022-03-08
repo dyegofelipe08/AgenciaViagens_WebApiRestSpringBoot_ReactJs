@@ -21,7 +21,7 @@ public class ItemPedido implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idItemPedidoPromo;
+	private Long idItemPedido;
 	
 	@ManyToOne
 	@JoinColumn(name = "pedidoId")
@@ -36,17 +36,22 @@ public class ItemPedido implements Serializable{
 		super();
 	}
 
-	public ItemPedido(Long idItemPedidoPromo) {
+	
+	public ItemPedido(Long idItemPedido, Pedido pedido, Local local) {
 		super();
-		this.idItemPedidoPromo = idItemPedidoPromo;
+		this.idItemPedido = idItemPedido;
+		this.pedido = pedido;
+		this.local = local;
 	}
 
-	public Long getIdItemPedidoPromo() {
-		return idItemPedidoPromo;
+
+
+	public Long getIdItemPedido() {
+		return idItemPedido;
 	}
 
-	public void setIdItemPedidoPromo(Long idItemPedidoPromo) {
-		this.idItemPedidoPromo = idItemPedidoPromo;
+	public void setIdItemPedido(Long idItemPedido) {
+		this.idItemPedido = idItemPedido;
 	}
 
 	public Pedido getPedido() {
@@ -69,7 +74,7 @@ public class ItemPedido implements Serializable{
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(idItemPedidoPromo);
+		return Objects.hash(idItemPedido);
 	}
 
 	@Override
@@ -81,7 +86,7 @@ public class ItemPedido implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		ItemPedido other = (ItemPedido) obj;
-		return Objects.equals(idItemPedidoPromo, other.idItemPedidoPromo);
+		return Objects.equals(idItemPedido, other.idItemPedido);
 	}
 	
 	

@@ -1,12 +1,17 @@
 package com.site.agenciaViagens.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Cliente implements Serializable {
@@ -22,6 +27,15 @@ public class Cliente implements Serializable {
 	private String cpf;
 	private String telefone;
 	private String email;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "cliente")
+	private List<Pedido> pedidos = new ArrayList<Pedido>();
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "cliente")
+	private List<Suporte> suportes = new ArrayList<Suporte>();
+	
 	
 	public Cliente() {
 		super();
@@ -74,6 +88,15 @@ public class Cliente implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+	
+
+	public List<Suporte> getSuportes() {
+		return suportes;
 	}
 
 	@Override
