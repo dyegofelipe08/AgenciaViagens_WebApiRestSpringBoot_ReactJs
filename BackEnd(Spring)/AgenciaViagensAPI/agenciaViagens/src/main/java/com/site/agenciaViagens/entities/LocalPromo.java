@@ -1,5 +1,6 @@
 package com.site.agenciaViagens.entities;
 
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -23,7 +24,7 @@ public class LocalPromo implements Serializable {
 	private double preco;
 	private double precoComDesconto;
 	private double taxaDesconto;
-	
+		
 	public LocalPromo() {
 		super();
 	}
@@ -55,7 +56,8 @@ public class LocalPromo implements Serializable {
 	//Calculo do preço promocional a partir do preço e da taxa de desconto (%).
 	
 	public double getPrecoComDesconto() {
-		return precoComDesconto = getPreco() * getTaxaDesconto();
+		precoComDesconto = getPreco() - (getPreco() * getTaxaDesconto());
+		return (Math.round(precoComDesconto*100.0)/100.0);
 	}
 	
 	public void setPrecoComDesconto(double precoComDesconto) {

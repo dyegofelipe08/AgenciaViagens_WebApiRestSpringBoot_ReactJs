@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.site.agenciaViagens.entities.ItemPedido;
+import com.site.agenciaViagens.entities.Local;
+import com.site.agenciaViagens.entities.Pedido;
 import com.site.agenciaViagens.repositories.ItemPedidoRepository;
+import com.site.agenciaViagens.repositories.LocalRepository;
+import com.site.agenciaViagens.repositories.PedidoRepository;
 
 @RestController
 @RequestMapping(value = "/itensPedido")
@@ -23,6 +27,12 @@ public class ItemPedidoController {
 	
 	@Autowired
 	private ItemPedidoRepository itemPedidoRepository;
+	
+	@Autowired
+	private PedidoRepository pedidoRepository;
+	
+	@Autowired
+	private LocalRepository localRepository;
 	
 	// GET ALL
 	
@@ -56,12 +66,13 @@ public class ItemPedidoController {
 	public ResponseEntity<ItemPedido> update (@PathVariable Long id, @RequestBody ItemPedido itensPedidoDetails){
 		
 		ItemPedido  itemPedidoUpdate = itemPedidoRepository.findById(id).get();
+		Pedido pedido = pedidoRepository.findById(itensPedidoDetails.getPedido().getIdPedido()).get();
+		Local local = localRepository.findById(itensPedidoDetails.getLocal().getIdLocal()).get();
 		
-		itemPedidoUpdate.setPedido(itensPedidoDetails.getPedido());
-		itemPedidoUpdate.setLocal(itensPedidoDetails.getLocal());
+		itemPedidoUpdate.setPedido(pedido);
+		itemPedidoUpdate.setLocal(local);
 		
 		itemPedidoRepository.save(itemPedidoUpdate);
-		
 		
 		return ResponseEntity.ok().body(itemPedidoUpdate);
 		
