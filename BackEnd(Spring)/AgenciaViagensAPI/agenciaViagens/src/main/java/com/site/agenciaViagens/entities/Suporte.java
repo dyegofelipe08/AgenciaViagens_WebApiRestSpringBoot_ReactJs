@@ -1,6 +1,7 @@
 package com.site.agenciaViagens.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -22,6 +23,8 @@ public class Suporte implements Serializable {
 	
 	private String mensagem;
 	
+	private Date dataEnvio;
+	
 	@ManyToOne
 	@JoinColumn(name = "idCliente")
 	private Cliente cliente;
@@ -30,10 +33,11 @@ public class Suporte implements Serializable {
 		super();
 	}
 
-	public Suporte(Long idSuporte, String mensagem, Cliente cliente) {
+	public Suporte(Long idSuporte, String mensagem, Date dataEnvio, Cliente cliente) {
 		super();
 		this.idSuporte = idSuporte;
 		this.mensagem = mensagem;
+		this.dataEnvio = dataEnvio;
 		this.cliente = cliente;
 	}
 
@@ -51,6 +55,15 @@ public class Suporte implements Serializable {
 
 	public void setMensagem(String mensagem) {
 		this.mensagem = mensagem;
+	}
+	
+
+	public Date getDataEnvio() {
+		return dataEnvio =  new Date();
+	}
+
+	public void setDataEnvio(Date dataEnvio) {
+		this.dataEnvio = dataEnvio;
 	}
 
 	public Cliente getCliente() {

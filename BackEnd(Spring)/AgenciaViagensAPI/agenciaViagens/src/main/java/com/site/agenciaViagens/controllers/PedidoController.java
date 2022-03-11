@@ -57,7 +57,7 @@ public class PedidoController {
 	//UPDATE 
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Pedido> update (@PathVariable Long id, @RequestBody Pedido pedidoDetails){
+	public ResponseEntity<Pedido> update (@PathVariable Long id, @RequestBody Pedido pedidoDetails)  {
 		
 		Pedido  pedidoUpdate = pedidoRepository.findById(id).get();
 		Cliente cliente = clienteRepository.findById(pedidoDetails.getCliente().getIdCliente()).get();
