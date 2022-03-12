@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.site.agenciaViagens.entities.ItemPedido;
 import com.site.agenciaViagens.entities.Local;
+import com.site.agenciaViagens.entities.LocalPromo;
 import com.site.agenciaViagens.entities.Pedido;
 import com.site.agenciaViagens.repositories.ItemPedidoRepository;
+import com.site.agenciaViagens.repositories.LocalPromoRepository;
 import com.site.agenciaViagens.repositories.LocalRepository;
 import com.site.agenciaViagens.repositories.PedidoRepository;
 
@@ -33,6 +35,9 @@ public class ItemPedidoController {
 	
 	@Autowired
 	private LocalRepository localRepository;
+	
+	@Autowired
+	private LocalPromoRepository localPromoRepository;
 	
 	// GET ALL
 	
@@ -68,9 +73,11 @@ public class ItemPedidoController {
 		ItemPedido  itemPedidoUpdate = itemPedidoRepository.findById(id).get();
 		Pedido pedido = pedidoRepository.findById(itensPedidoDetails.getPedido().getIdPedido()).get();
 		Local local = localRepository.findById(itensPedidoDetails.getLocal().getIdLocal()).get();
+		LocalPromo localPromo = localPromoRepository.findById(itensPedidoDetails.getLocalPromo().getIdLocalPromo()).get();
 		
 		itemPedidoUpdate.setPedido(pedido);
 		itemPedidoUpdate.setLocal(local);
+		itemPedidoUpdate.setLocalPromo(localPromo);
 		
 		itemPedidoRepository.save(itemPedidoUpdate);
 		

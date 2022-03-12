@@ -28,6 +28,20 @@ public class LocalPromo implements Serializable {
 	public LocalPromo() {
 		super();
 	}
+	
+	public LocalPromo(Long idLocalPromo, String descricaoPromo, String urlImagemPromo, double preco,
+			double precoComDesconto, double taxaDesconto) {
+		super();
+		this.idLocalPromo = idLocalPromo;
+		this.descricaoPromo = descricaoPromo;
+		this.urlImagemPromo = urlImagemPromo;
+		this.preco = preco;
+		this.precoComDesconto = precoComDesconto;
+		this.taxaDesconto = taxaDesconto;
+	}
+
+
+
 	public Long getIdLocalPromo() {
 		return idLocalPromo;
 	}

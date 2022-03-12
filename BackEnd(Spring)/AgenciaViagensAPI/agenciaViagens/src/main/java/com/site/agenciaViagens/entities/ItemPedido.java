@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 
+
 @Entity
 public class ItemPedido implements Serializable{
 
@@ -31,11 +32,24 @@ public class ItemPedido implements Serializable{
 	@OneToOne
 	@JoinColumn(name = "localId")
 	private Local local;
+	
+	
+	@OneToOne
+	@JoinColumn(name = "localPromoId")
+	private LocalPromo localPromo;
 
 	public ItemPedido() {
 		super();
 	}
+	
 
+	public ItemPedido(Long idItemPedido, Pedido pedido, Local local, LocalPromo localPromo) {
+		super();
+		this.idItemPedido = idItemPedido;
+		this.pedido = pedido;
+		this.local = local;
+		this.localPromo = localPromo;
+	}
 	
 	public ItemPedido(Long idItemPedido, Pedido pedido, Local local) {
 		super();
@@ -43,7 +57,13 @@ public class ItemPedido implements Serializable{
 		this.pedido = pedido;
 		this.local = local;
 	}
-
+	
+	public ItemPedido(Long idItemPedido, Pedido pedido, LocalPromo localPromo) {
+		super();
+		this.idItemPedido = idItemPedido;
+		this.pedido = pedido;
+		this.localPromo = localPromo;
+	}
 
 
 	public Long getIdItemPedido() {
@@ -67,11 +87,20 @@ public class ItemPedido implements Serializable{
 	public Local getLocal() {
 		return local;
 	}
-
+	
 	public void setLocal(Local local) {
 		this.local = local;
 	}
 
+	public LocalPromo getLocalPromo() {
+		return localPromo;
+	}
+	
+	
+	public void setLocalPromo(LocalPromo localPromo) {
+		this.localPromo = localPromo;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(idItemPedido);

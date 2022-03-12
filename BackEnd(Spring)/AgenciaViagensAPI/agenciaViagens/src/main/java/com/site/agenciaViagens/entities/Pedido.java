@@ -42,10 +42,6 @@ public class Pedido implements Serializable {
 	@OneToMany(mappedBy = "pedido")
 	private List<ItemPedido> itensPedido = new ArrayList<ItemPedido>();
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "pedidoPromo")
-	private List<ItemPedidoPromo> itensPedidoPromo = new ArrayList<ItemPedidoPromo>();
-
 	public Pedido() {
 		super();
 	}
@@ -89,27 +85,28 @@ public class Pedido implements Serializable {
 		this.dataPedido = dataPedido;
 	}
 
-	// lógica para adicionar valores dos intens ao valor total do pedil. (A
-	// testar)
+	// lógica para adicionar valores dos itens promocionais e não promocionais ao
+	// valor total do pedido.
 
 	public double getTotalPedido() {
 
 		Iterator<ItemPedido> it = itensPedido.iterator();
-		Iterator<ItemPedidoPromo> itPromo = itensPedidoPromo.iterator();
-		double valor = 0;
-		double valorPromo = 0;
+		Iterator<ItemPedido> itPromo = itensPedido.iterator();
+		double valor = 0.0;
+		double valorPromo = 0.0;
 
 		while (it.hasNext()) {
 			ItemPedido iaux = (ItemPedido) it.next();
 			valor += iaux.getLocal().getPreco();
 		}
-
 		while (itPromo.hasNext()) {
-			ItemPedidoPromo iauxPromo = (ItemPedidoPromo) itPromo.next();
-			valorPromo += iauxPromo.getLocalPromo().getPreco();
+			ItemPedido iauxPromo = (ItemPedido) itPromo.next();
+
+			valorPromo += iauxPromo.getLocalPromo().getPrecoComDesconto();
 		}
 
-		return totalPedido += (valor + valorPromo);
+		return (Math.round((totalPedido += (valor + valorPromo)) * 100.0) / 100.0);
+
 	}
 
 	public void setTotalPedido(double totalPedido) {
@@ -126,10 +123,6 @@ public class Pedido implements Serializable {
 
 	public List<ItemPedido> getItensPedido() {
 		return itensPedido;
-	}
-
-	public List<ItemPedidoPromo> getItensPedidoPromo() {
-		return itensPedidoPromo;
 	}
 
 	@Override

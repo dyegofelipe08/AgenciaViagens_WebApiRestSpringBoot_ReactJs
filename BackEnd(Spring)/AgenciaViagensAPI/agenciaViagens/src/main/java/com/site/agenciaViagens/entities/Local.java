@@ -22,8 +22,6 @@ public class Local implements Serializable {
 	private String urlImagem;
 	private double preco;
 	
-	
-	
 	public Local() {
 		super();
 	}
