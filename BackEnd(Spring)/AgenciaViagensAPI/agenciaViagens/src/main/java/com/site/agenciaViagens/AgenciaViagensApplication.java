@@ -23,7 +23,7 @@ import com.site.agenciaViagens.repositories.SuporteRepository;
 @SpringBootApplication
 public class AgenciaViagensApplication implements CommandLineRunner {
 	
-	@Autowired
+	/*@Autowired
 	private ClienteRepository clienteRepository;
 	
 	@Autowired
@@ -39,7 +39,7 @@ public class AgenciaViagensApplication implements CommandLineRunner {
 	private ItemPedidoRepository itemPedidoRepository;
 	
 	@Autowired
-	private SuporteRepository suporteRepository;
+	private SuporteRepository suporteRepository;*/
 	
 
 	public static void main(String[] args) {
@@ -50,7 +50,7 @@ public class AgenciaViagensApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		
 		
-		Cliente c1 = new Cliente(null, "Dyego Felipe", "12346884-86","81999999","dyego@teste.com");
+		/*Cliente c1 = new Cliente(null, "Dyego Felipe", "12346884-86","81999999","dyego@teste.com");
 		Cliente c2= new Cliente(null, "Prisciele Andrade", "3135463121-86","819199999","pri@teste.com");
 		
 		Pedido p1 = new Pedido (null, null, 0.0, c1);
@@ -112,7 +112,7 @@ public class AgenciaViagensApplication implements CommandLineRunner {
 		
 		
 		suporteRepository.save(s1);
-		suporteRepository.save(s2);
+		suporteRepository.save(s2);*/
 		
 		
 		
