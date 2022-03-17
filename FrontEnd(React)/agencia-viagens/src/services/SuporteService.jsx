@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const   SUPORTE_API_URL = "https://";
+const   SUPORTE_API_URL = "http://localhost:8080/suportes";
 
 class SuporteService {
   getAllSuportes() {

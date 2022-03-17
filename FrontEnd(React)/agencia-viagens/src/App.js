@@ -17,21 +17,18 @@ import Suporte from './views/Suporte/';
 import SuporteCreate from './views/Suporte/Create';
 import CadastroOk from './views/Sucess/CadastroOk';
 import PedidoOk from './views/Sucess/PedidoOk';
+import ClienteUpdateOk from './views/Sucess/ClienteUpdateOk';
+
+import './styles.css';
+
+
 
 function App() {
   return (
 
     <BrowserRouter>
       <NavBar />
-      <div className='container pb-4 pt-4' 
-      style={{backgroundColor: '#fff9c4',  
-      padding: '10px',
-      border: '1px solid #BFBFBF',
-      boxShadow: '1px 3px 3px 3px #757575',
-      marginBottom: 'auto',
-      height:'auto',
-
-      }}>
+      <div className='container containerPrincipal px-0 pb-4 pt-0' >
       <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/Adm' element={<Adm />} />
@@ -55,6 +52,8 @@ function App() {
       <Route path='/Suporte-Update/:id' element={<SuporteCreate/>} />
       <Route path='/CadastroOk' element={<CadastroOk/>} />
       <Route path='/PedidoOk' element={<PedidoOk/>} />
+      <Route path='/ClienteUpdateOk' element={<ClienteUpdateOk/>} />
+
       </Routes>
       </div>
       <Footer className='footer'/>

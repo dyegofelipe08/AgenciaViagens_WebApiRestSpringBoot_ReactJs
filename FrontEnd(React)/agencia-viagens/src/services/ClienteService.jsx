@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const   CLIENTE_API_URL = "https://";
+const   CLIENTE_API_URL = "http://localhost:8080/clientes";
 
 class ClienteService {
   getAllClientes() {

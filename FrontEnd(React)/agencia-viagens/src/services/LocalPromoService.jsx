@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const   LOCAL_PROMO_API_URL = "https://";
+const   LOCAL_PROMO_API_URL = "http://localhost:8080/locaisPromo";
 
 class LocalPromoService {
   getAllLocaisPromo() {

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const   ITENS_API_URL = "https://";
+const   ITENS_API_URL = "http://localhost:8080/itensPedido";
 
 class ItensPedidoService {
   getAllItens() {
