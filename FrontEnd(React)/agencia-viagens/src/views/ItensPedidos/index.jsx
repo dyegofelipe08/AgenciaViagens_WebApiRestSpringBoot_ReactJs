@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import LivroService from "../../services/LivroService";
+import ButtonVoltarAdm from "../../components/ButtonVoltarAdm";
+import ItensPedidoService from "../../services/ItensPedidoService";
 
 export default function Index() {
-  const [livros, setLivros] = useState([]);
+  const [itens, setItens] = useState([]);
 
-  const getAllLivros = () => {
-    LivroService.getAllLivros()
+  const getAllItens = () => {
+    ItensPedidoService.getAllItens()
       .then((response) => {
-        setLivros(response.data);
+        setItens(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -16,13 +17,13 @@ export default function Index() {
   };
 
   useEffect(() => {
-    getAllLivros();
+    getAllItens();
   }, []);
 
-  const deleteLivro = (livroId) => {
-    LivroService.deleteLivro(livroId)
+  const deleteItem = (itemId) => {
+    ItensPedidoService.deleteItem(itemId)
       .then((response) => {
-        getAllLivros();
+        getAllItens();
       })
       .catch((error) => {
         console.log(error);
@@ -32,46 +33,40 @@ export default function Index() {
   return (
     <>
       <header className="header">
-        <h1 className="container">Cadastro Livro</h1>
+        <h1 className="container">Lista de itens dos pedido</h1>
       </header>
       <div className="container py-3">
-        <Link to="/Livros-Create" className="btn btn-primary mb-2">
-          Criar Livro
+        <Link to="/ItensPedido-Create" className="btn btn-primary mb-2">
+          Adicionar itens ao pedido
         </Link>
         <div className="table-responsive">
           <table className="table">
             <thead>
               <tr>
                 <th>Id</th>
-                <th>Nome</th>
-                <th>Isbn</th>
-                <th>Preço</th>
-                <th>Autor</th>
-                <th>Editora</th>
+                <th>Pedido</th>
+                <th>Local</th>
+                <th>Local Promocional</th>
                 <th>Ações</th>
               </tr>
             </thead>
             <tbody>
-              {livros.map((livro) => (
-                <tr key={livro.id}>
-                  <td>{livro.id}</td>
-                  <td>{livro.nome}</td>
-                  <td>{livro.isbn}</td>
-                  <td>{livro.preco}</td>
-                  <td>
-                    {livro.autor.nome} {livro.autor.sobrenome}
-                  </td>
-                  <td>{livro.editora.nome}</td>
+              {itens.map((item) => (
+                <tr key={item.idItemPedido}>
+                  <td>{item.idItemPedido}</td>
+                  <td>{item.pedido.cliente.nome}</td>
+                  <td>{item.local.descricao}</td>
+                  <td>{item.localPromo.descricaoPromo}</td>
                   <td className="d-flex">
                     <Link
-                      to={`/Livros-Update/${livro.id}`}
+                      to={`/ItensPedido-Update/${item.idItemPedido}`}
                       className="btn btn-info"
                     >
                       Editar
                     </Link>
                     <button
                       className="btn btn-danger"
-                      onClick={() => deleteLivro(livro.id)}
+                      onClick={() => deleteItem(item.idItemPedido)}
                       style={{ marginLeft: "10px" }}
                     >
                       Deletar
@@ -82,6 +77,7 @@ export default function Index() {
             </tbody>
           </table>
         </div>
+        <ButtonVoltarAdm/>
       </div>
     </>
   );

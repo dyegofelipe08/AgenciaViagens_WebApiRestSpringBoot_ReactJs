@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ButtonVoltarAdm from "../../components/ButtonVoltarAdm";
 import PedidoService from "../../services/PedidoService";
 
 export default function Index() {
@@ -53,8 +54,8 @@ export default function Index() {
               {pedidos.map((pedido) => (
                 <tr key={pedido.idPedido}>
                   <td>{pedido.idPedido}</td>
-                  <td>{pedido.totalPedido}</td>
                   <td>{pedido.dataPedido}</td>
+                  <td>{pedido.totalPedido}</td>
                   <td>{pedido.cliente.nome}</td>
                   <td className="d-flex">
                     <Link
@@ -76,6 +77,7 @@ export default function Index() {
             </tbody>
           </table>
         </div>
+        <ButtonVoltarAdm/>
       </div>
     </>
   );

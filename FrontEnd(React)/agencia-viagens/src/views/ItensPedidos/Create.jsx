@@ -61,7 +61,7 @@ export default function Create() {
     getAllLocaisPromo();
   }, []);
 
-  const criarOuEditarItem = (e) => {
+  const criarOuEditarItemPromo = (e) => {
     e.preventDefault();
 
     const item = { pedido, local, localPromo };
@@ -135,21 +135,42 @@ export default function Create() {
           </div>
 
           <div className="form-group mb-3">
-            <label htmlFor="Editora" className="form-label">
-              Editora
+            <label htmlFor="Local" className="form-label">
+            Local
             </label>
             <select
-              id="Editora"
-              name="Editora"
+              id="Local"
+              name="Local"
               className="form-select"
               onChange={(e) =>
-                setEditora({ id: Number.parseInt(e.target.value) })
+                setLocal({ idLocal: Number.parseInt(e.target.value) })
               }
             >
-              <option value="DEFAULT" >{id ? editora.nome : 'Escolha um editora'}</option>
-              {editoras.map((editora) => (
-                <option key={editora.id} value={editora.id}>
-                  {editora.nome}
+              <option value="DEFAULT" >{id ? local.descricao : 'Escolha um local'}</option>
+              {locais.map((local) => (
+                <option key={local.idLocal} value={local.idLocal}>
+                  {local.descricao}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="form-group mb-3">
+            <label htmlFor="LocalPromo" className="form-label">
+            Local Promocional
+            </label>
+            <select
+              id="LocalPromo"
+              name="LocalPromo"
+              className="form-select"
+              onChange={(e) =>
+                setLocalPromo({ idLocalPromo: Number.parseInt(e.target.value) })
+              }
+            >
+              <option value="DEFAULT" >{id ? localPromo.descricao : 'Escolha um local promocional'}</option>
+              {locaisPromo.map((localPromo) => (
+                <option key={localPromo.idLocalPromo} value={localPromo.idLocalPromo}>
+                  {localPromo.descricaoPromo}
                 </option>
               ))}
             </select>
@@ -158,12 +179,12 @@ export default function Create() {
           <button
             type="submit"
             className="btn btn-primary"
-            onClick={(e) => criarOuEditarAutor(e)}
+            onClick={(e) => criarOuEditarItemPromo(e)}
           >
             Enviar
           </button>
           <Link
-            to="/Livros"
+            to="/ItensPedido"
             className="btn btn-danger"
             style={{ marginLeft: "10px" }}
           >

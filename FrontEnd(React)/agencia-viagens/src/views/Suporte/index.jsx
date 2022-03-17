@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ButtonVoltarAdm from "../../components/ButtonVoltarAdm";
 import SuporteService from "../../services/SuporteService";
 
 export default function Index() {
@@ -79,6 +80,7 @@ export default function Index() {
             </tbody>
           </table>
         </div>
+        <ButtonVoltarAdm/>
       </div>
     </>
   );

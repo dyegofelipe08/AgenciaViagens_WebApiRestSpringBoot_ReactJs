@@ -56,11 +56,15 @@ public class AgenciaViagensApplication implements CommandLineRunner {
 		Pedido p1 = new Pedido (null, null, 0.0, c1);
 		Pedido p2 = new Pedido (null, null, 0.0, c2);
 		
-		Local l1 = new Local (null, "descricao local 1","url imagem 1", 533.93);
-		Local l2 = new Local (null, "descricao local 2","url imagem 2", 777.9);
+		Local l1 = new Local (null, "descricao local 1","https://www.flytap.com/-/media/Flytap/new-tap-pages/destinations/south-america/brazil/recife/recife-banner-mobile-1024x553.jpg", 533.93);
+		Local l2 = new Local (null, "descricao local 2","https://www.melhoresdestinos.com.br/wp-content/uploads/2019/08/rio-de-janeiro-capa2019-01.jpg", 777.9);
+		Local l3 = new Local (null, "descricao local 3","https://www.cognatis.com.br/qds2/wp-content/uploads/2021/01/Sao-Paulo-467-banner-1.jpg", 777.9);
+		Local l4 = new Local (null, "descricao local 4","https://w8e8i3u2.stackpathcdn.com/wp-content/uploads/2021/02/Genipabu-natal-brasil.jpg", 533.93);
 		
-		LocalPromo lp1 = new LocalPromo (null, "Descricao promo 1","url imagem promo 1",878.97, 0.0,0.10);
-		LocalPromo lp2 = new LocalPromo (null, "Descricao promo 2","url imagem promo 2",783.95, 0.0,0.10);
+		LocalPromo lp1 = new LocalPromo (null, "Descricao promo 1","https://www.temporadalivre.com/blog-media/posts/cover/10024/size_800_o-que-ver-e-fazer-em-joao-pessoa-pb-2-b00a6b04.jpeg",878.97, 0.0,0.10);
+		LocalPromo lp2 = new LocalPromo (null, "Descricao promo 2","https://www.sescpr.com.br/wp-content/uploads/2019/04/porto-alegre-sede-copa3.jpg",783.95, 0.0,0.10);
+		LocalPromo lp3 = new LocalPromo (null, "Descricao promo 3","https://ipepalmas.com.br/wp-content/uploads/2021/07/palmas05.jpg",783.95, 0.0,0.10);
+		LocalPromo lp4 = new LocalPromo (null, "Descricao promo 4","https://todepassagem.clickbus.com.br/wp-content/uploads/2020/09/Praias-de-Florian%C3%B3polis.jpg",783.95, 0.0,0.10);
 		
 
 		ItemPedido itp1 = new ItemPedido(null,p1,l1, lp1);
@@ -94,9 +98,13 @@ public class AgenciaViagensApplication implements CommandLineRunner {
 		
 		localRepository.save(l1);
 		localRepository.save(l2);
+		localRepository.save(l3);
+		localRepository.save(l4);
 		
 		localPromoRepository.save(lp1);
 		localPromoRepository.save(lp2);
+		localPromoRepository.save(lp3);
+		localPromoRepository.save(lp4);
 		
 		itemPedidoRepository.save(itp1);
 		itemPedidoRepository.save(itp2);

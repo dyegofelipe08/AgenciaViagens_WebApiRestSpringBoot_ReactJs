@@ -1,11 +1,9 @@
 import React from "react";
 import ButtonCadastro from "../../components/ButtonCadastro";
 
-
-
 export default function Home() {
     return (
-        <div >
+        <div className="pb-4 mb-4" >
             <header className="m-0 p-0">
                 <div id="carouselExampleControls" className="carousel slide mt-0 pt-0" data-ride="carousel">
                     <div className="carousel-inner">
@@ -39,9 +37,7 @@ export default function Home() {
                 <h1 className="display-6">Bem-vindo ao nosso site! </h1>
                 <h1 className="lead">Aqui você encontra passagens aéreas para as principais cidades do Brasil. Os melhores destinos e os melhores preços!</h1>
             </div>
-            <ButtonCadastro/>
-
-        
+            <ButtonCadastro />
         </div>
 
 

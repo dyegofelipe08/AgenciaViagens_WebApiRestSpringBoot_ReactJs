@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 
@@ -7,10 +7,11 @@ function NavBar() {
 
 
   return (
-    <>
-      <nav className="navbar navbar-expand-lg " style={{ backgroundColor: '#009c3b' }}>
-        <div className="container-fluid">
-          <a className="navbar-brand " ><Link className="navbar-brand " to='/'>Brasil Sem Fronteiras</Link></a>
+    <header>
+
+      <nav className="navbar navbar-expand-lg my-0 BgcolorGradientNavBar shadowNavBar " style={{color:'yellow'}}>
+        <div className="container-fluid ">
+          <a className="navbar-brand " ><Link className="navbar-brand text-warning" to='/'>Brasil Sem Fronteiras</Link></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -19,17 +20,17 @@ function NavBar() {
             <ul className="navbar-nav me-auto">
               <li className="nav-item ">
                 <a >
-                  <Link className="nav-link" to='/Locais'>Destinos</Link>
+                  <Link className="nav-link text-warning" to='/Destinos'>Destinos</Link>
                 </a>
               </li>
               <li className="nav-item">
                 <a >
-                  <Link className="nav-link" to='/Promocoes'>Promoções</Link>
+                  <Link className="nav-link text-warning" to='/DestinosPromo'>Promoções</Link>
                 </a>
               </li>
               <li className="nav-item">
                 <a >
-                  <Link className="nav-link" to='/Suporte-Create'>Fale conosco</Link>
+                  <Link className="nav-link text-warning" to='/Suporte-Create'>Fale conosco</Link>
                 </a>
               </li>
             </ul>
@@ -37,7 +38,11 @@ function NavBar() {
         </div>
       </nav>
 
-    </>
+    </header>
+
+
+
+
   );
 }
 
