@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function PedidoOk(){
+export default function PedidoFinalOk(){
     return(
 
 <div>

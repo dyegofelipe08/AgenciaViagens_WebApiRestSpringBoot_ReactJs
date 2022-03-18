@@ -31,7 +31,7 @@ export default function Destinos() {
                         <div className="card-body">
                             <h2 className="card-title text-center">R$ {local.preco}</h2>
                             <p className="card-text text-center">{local.descricao}</p>
-                            <a ><Link className="btn btn-success btn-block" to='/Clientes-Create'>Selecionar</Link></a>
+                            <a ><Link className="btn btn-success btn-block" to='/CadastroUsuario'>Selecionar</Link></a>
                         </div>
                     </div>
                 </div>

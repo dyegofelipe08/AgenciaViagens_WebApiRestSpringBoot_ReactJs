@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const   LOCAL_API_URL = "http://localhost:8080/locais";
+const   LOCAL_API_URL = "https://agenciaviagens-backend.herokuapp.com/locais";
 
 class LocalService {
   getAllLocais() {

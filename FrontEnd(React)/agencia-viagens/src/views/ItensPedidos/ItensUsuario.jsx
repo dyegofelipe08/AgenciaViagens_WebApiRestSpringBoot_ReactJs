@@ -5,11 +5,11 @@ import PedidoService from "../../services/PedidoService";
 import LocalService from "../../services/LocalService";
 import LocalPromoService from "../../services/LocalPromoService";
 
-export default function Create() {
+export default function ItensUsuario() {
  
-  const [pedido, setPedido] = useState({ idPedido: "", cliente: {nome:""}});
+  const [pedido, setPedido] = useState({ idPedido: "", cliente: ""});
   const [local, setLocal] = useState({ idLocal: "", descricao: "" });
-  const [localPromo, setLocalPromo] = useState({ idLocalPromo: "", descricaoPromo: "" });
+  const [localPromo, setLocalPromo] = useState({ idLocalPromo: "", descricao: "" });
 
   const [pedidos, setPedidos] = useState([]);
   const [locais, setLocais] = useState([]);
@@ -61,71 +61,38 @@ export default function Create() {
     getAllLocaisPromo();
   }, []);
 
-  const criarOuEditarItemPromo = (e) => {
+  const criarItemUsuario = (e) => {
     e.preventDefault();
 
     const item = { pedido, local, localPromo };
     console.log(item)
-    if (id) {
-      ItensPedidoService.updateItem(id, item).then((response) => {
-        navigate("/ItensPedido");
-      });
-    } else {
+    
         ItensPedidoService.createItem(item).then((response) => {
-        navigate("/ItensPedido");
+        navigate("/PedidoOk");
       });
-    }
+  
   };
-
-  useEffect(() => {
-    function getItemById() {
-      if (id) {
-        ItensPedidoService.getItemById(id)
-          .then((response) => {
-            setPedido({
-              idPedido: response.data.pedido.idPedido,
-              cliente : {
-                nome:response.data.pedido.cliente.nome,
-              }
-            });
-            setLocal({
-              idLocal: response.data.local.idLocal,
-              descricao: response.data.local.descricao,
-            });
-            setLocalPromo({
-                idLocalPromo: response.data.localPromo.idLocalPromo,
-                descricaoPromo: response.data.localPromo.descricaoPromo,
-              });
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
-    }
-
-    getItemById();
-  }, [id]);
 
   return (
     <div className="container py-3">
       <form>
         <fieldset>
           <legend>
-            <h2 className="text-center">{id ? "Editar" : "Criar"}</h2>
+            <h2 className="text-center">Adicionar Locais ao pedido</h2>
           </legend>
           <div className="form-group mb-3">
-            <label htmlFor="idPedido" className="form-label">
+            <label htmlFor="AutorId_autor" className="form-label">
               Pedido
             </label>
             <select
-              id="idPedido"
-              name="idPedido"
+              id="PedidoId_Pedido"
+              name="PedidoId_Pedido"
               className="form-select"
               onChange={(e) =>
                 setPedido({ idPedido: Number.parseInt(e.target.value) })
               }
             >
-              <option value="DEFAULT" >{id ? pedido.cliente.nome : 'Escolha o nome do cliente'}</option>
+              <option value="DEFAULT" >Escolha o nome do cliente</option>
               {pedidos.map((pedido) => (
                 <option key={pedido.idPedido} value={pedido.idPedido}>
                   {pedido.cliente.nome}  {pedido.cliente.cpf}
@@ -135,12 +102,12 @@ export default function Create() {
           </div>
 
           <div className="form-group mb-3">
-            <label htmlFor="idLocal" className="form-label">
+            <label htmlFor="Local" className="form-label">
             Local
             </label>
             <select
-              id="idLocal"
-              name="idLocal"
+              id="Local"
+              name="Local"
               className="form-select"
               onChange={(e) =>
                 setLocal({ idLocal: Number.parseInt(e.target.value) })
@@ -156,18 +123,18 @@ export default function Create() {
           </div>
 
           <div className="form-group mb-3">
-            <label htmlFor="idLocalPromo" className="form-label">
+            <label htmlFor="LocalPromo" className="form-label">
             Local Promocional
             </label>
             <select
-              id="idLocalPromo"
-              name="idLocalPromo"
+              id="LocalPromo"
+              name="LocalPromo"
               className="form-select"
               onChange={(e) =>
                 setLocalPromo({ idLocalPromo: Number.parseInt(e.target.value) })
               }
             >
-              <option value="DEFAULT" >{id ? localPromo.descricaoPromo : 'Escolha um local promocional'}</option>
+              <option value="DEFAULT" >{id ? localPromo.descricao : 'Escolha um local promocional'}</option>
               {locaisPromo.map((localPromo) => (
                 <option key={localPromo.idLocalPromo} value={localPromo.idLocalPromo}>
                   {localPromo.descricaoPromo}
@@ -178,13 +145,13 @@ export default function Create() {
 
           <button
             type="submit"
-            className="btn btn-primary"
-            onClick={(e) => criarOuEditarItemPromo(e)}
+            className="btn btn-success"
+            onClick={(e) => criarItemUsuario(e)}
           >
             Enviar
           </button>
           <Link
-            to="/ItensPedido"
+            to="/PedidoUsuario"
             className="btn btn-danger"
             style={{ marginLeft: "10px" }}
           >
@@ -192,6 +159,7 @@ export default function Create() {
           </Link>
         </fieldset>
       </form>
+
     </div>
   );
 }

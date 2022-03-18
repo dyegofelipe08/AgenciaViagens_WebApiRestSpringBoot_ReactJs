@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const   SUPORTE_API_URL = "http://localhost:8080/suportes";
+const   SUPORTE_API_URL = "https://agenciaviagens-backend.herokuapp.com/suportes";
 
 class SuporteService {
   getAllSuportes() {

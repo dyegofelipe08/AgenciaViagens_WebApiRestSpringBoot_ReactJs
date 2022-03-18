@@ -30,7 +30,7 @@ function NavBar() {
               </li>
               <li className="nav-item">
                 <a >
-                  <Link className="nav-link text-warning" to='/Suporte-Create'>Fale conosco</Link>
+                  <Link className="nav-link text-warning" to='/SuporteUsuario'>Fale conosco</Link>
                 </a>
               </li>
             </ul>

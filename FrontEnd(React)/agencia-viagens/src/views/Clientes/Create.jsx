@@ -19,13 +19,13 @@ export default function Create() {
     if (id) {
         ClienteService.updateCliente(id, cliente)
         .then((response) => {
-            navigate("/ClienteUpdateOk")
+            navigate("/Clientes")
         })
 
     } else {
         ClienteService.createCliente(cliente)
         .then((response) => {
-            navigate("/CadastroOk")
+            navigate("/Clientes")
         })
     }
   }
@@ -38,7 +38,7 @@ export default function Create() {
                 setNome(response.data.nome);
                 setCpf(response.data.cpf);
                 setTelefone(response.data.telefone);
-                setEmail(response.data.Email);
+                setEmail(response.data.email);
 
             })
             .catch((error) => {
@@ -114,7 +114,7 @@ export default function Create() {
             Enviar
           </button>
           <Link
-            to="/"
+            to="/Clientes"
             className="btn btn-danger"
             style={{ marginLeft: "10px" }}
           >

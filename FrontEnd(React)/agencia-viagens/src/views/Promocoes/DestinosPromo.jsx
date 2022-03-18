@@ -31,7 +31,7 @@ export default function Destinos() {
                             <h2 className="card-title text-center">R$ {localPromo.precoComDesconto}</h2>
                             <p className="card-title text-center"><s>R$ {localPromo.preco}</s></p>
                             <p className="card-text text-center">{localPromo.descricaoPromo}</p>
-                            <a ><Link className="btn btn-success btn-block" to='/Clientes-Create'>Selecionar</Link></a>
+                            <a ><Link className="btn btn-success btn-block" to='/CadastroUsuario'>Selecionar</Link></a>
                         </div>
                     </div>
                 </div>

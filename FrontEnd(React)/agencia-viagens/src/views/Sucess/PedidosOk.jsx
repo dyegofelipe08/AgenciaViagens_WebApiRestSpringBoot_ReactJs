@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CadastroOk(){
+export default function PedidosOk(){
     return(
 
 <div>

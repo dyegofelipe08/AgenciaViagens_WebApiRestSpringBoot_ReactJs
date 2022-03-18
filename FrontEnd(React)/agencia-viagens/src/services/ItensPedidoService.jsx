@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const   ITENS_API_URL = "http://localhost:8080/itensPedido";
+const   ITENS_API_URL = "https://agenciaviagens-backend.herokuapp.com/itensPedido";
 
 class ItensPedidoService {
   getAllItens() {
