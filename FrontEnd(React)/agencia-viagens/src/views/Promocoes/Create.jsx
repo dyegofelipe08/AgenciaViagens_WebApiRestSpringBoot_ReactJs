@@ -115,7 +115,7 @@ export default function Create() {
             Enviar
           </button>
           <Link
-            to="/"
+            to="/Promocoes"
             className="btn btn-danger"
             style={{ marginLeft: "10px" }}
           >

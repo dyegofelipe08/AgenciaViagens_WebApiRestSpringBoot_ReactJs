@@ -68,7 +68,7 @@ export default function ItensUsuario() {
     console.log(item)
     
         ItensPedidoService.createItem(item).then((response) => {
-        navigate("/PedidoOk");
+        navigate("/PedidosOk");
       });
   
   };
@@ -82,7 +82,7 @@ export default function ItensUsuario() {
           </legend>
           <div className="form-group mb-3">
             <label htmlFor="AutorId_autor" className="form-label">
-              Pedido
+              Selecione seu nome e CPF:
             </label>
             <select
               id="PedidoId_Pedido"
@@ -103,7 +103,7 @@ export default function ItensUsuario() {
 
           <div className="form-group mb-3">
             <label htmlFor="Local" className="form-label">
-            Local
+            Escolha o destino:
             </label>
             <select
               id="Local"
@@ -124,7 +124,7 @@ export default function ItensUsuario() {
 
           <div className="form-group mb-3">
             <label htmlFor="LocalPromo" className="form-label">
-            Local Promocional
+            Escolha o destino promocional:
             </label>
             <select
               id="LocalPromo"

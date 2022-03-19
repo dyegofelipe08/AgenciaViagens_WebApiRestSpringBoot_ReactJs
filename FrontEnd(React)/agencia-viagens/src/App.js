@@ -23,7 +23,7 @@ import SuporteCreate from './views/Suporte/Create';
 import SuporteUsuario from './views/Suporte/SuporteUsuario';
 import SuporteOk from './views/Sucess/SuporteOk';
 import CadastroOk from './views/Sucess/CadastroOk';
-import PedidoOk from './views/Sucess/PedidoFinalOk';
+import PedidosOk from './views/Sucess/PedidosOk';
 import ClienteUpdateOk from './views/Sucess/ClienteUpdateOk';
 import PedidoFinalOk from './views/Sucess/PedidoFinalOk';
 
@@ -66,7 +66,7 @@ function App() {
       <Route path='/Suporte-Create' element={<SuporteCreate/>} />
       <Route path='/Suporte-Update/:id' element={<SuporteCreate/>} />
       <Route path='/CadastroOk' element={<CadastroOk/>} />
-      <Route path='/PedidoOk' element={<PedidoOk/>} />
+      <Route path='/PedidosOk' element={<PedidosOk/>} />
       <Route path='/PedidoFinalOk' element={<PedidoFinalOk/>} />
       <Route path='/ClienteUpdateOk' element={<ClienteUpdateOk/>} />
 

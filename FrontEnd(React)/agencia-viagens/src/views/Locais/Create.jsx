@@ -99,7 +99,7 @@ export default function Create() {
             Enviar
           </button>
           <Link
-            to="/Adm"
+            to="/Locais"
             className="btn btn-danger"
             style={{ marginLeft: "10px" }}
           >

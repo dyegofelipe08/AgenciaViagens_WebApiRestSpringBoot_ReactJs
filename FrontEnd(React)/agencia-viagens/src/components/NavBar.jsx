@@ -1,7 +1,5 @@
 
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 function NavBar() {
 
@@ -9,39 +7,21 @@ function NavBar() {
   return (
     <header>
 
-      <nav className="navbar navbar-expand-lg my-0 BgcolorGradientNavBar shadowNavBar " style={{color:'yellow'}}>
-        <div className="container-fluid ">
-          <a className="navbar-brand " ><Link className="navbar-brand text-warning" to='/'>Brasil Sem Fronteiras</Link></a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarColor02">
-            <ul className="navbar-nav me-auto">
-              <li className="nav-item ">
-                <a >
-                  <Link className="nav-link text-warning" to='/Destinos'>Destinos</Link>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a >
-                  <Link className="nav-link text-warning" to='/DestinosPromo'>Promoções</Link>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a >
-                  <Link className="nav-link text-warning" to='/SuporteUsuario'>Fale conosco</Link>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <Navbar className="my-0 BgcolorGradientNavBar shadowNavBar " expand="lg">
+        <Container>
+          <Navbar.Brand className="text-warning" href='/'>Brasil Sem Fronteiras</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link className="text-warning" href='/Destinos'>Destinos</Nav.Link>
+              <Nav.Link className="text-warning" href='/DestinosPromo'>Promoções</Nav.Link>
+              <Nav.Link className="text-warning" href='/SuporteUsuario'>Fale Conosco</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
 
     </header>
-
-
-
 
   );
 }

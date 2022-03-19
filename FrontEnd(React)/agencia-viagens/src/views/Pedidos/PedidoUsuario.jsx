@@ -65,7 +65,7 @@ export default function PedidoUsuario() {
                     </legend>
                     <div className="form-group mb-3">
                         <label htmlFor="idCliente" className="form-label">
-                            <h4>Estamos quse finalizando. Selecione seu CPF para proesguir com o pedido...</h4>
+                            <h4>Estamos quase finalizando. Selecione seu CPF para proseguir com o pedido...</h4>
                         </label>
                         <select
                             id="idCliente"

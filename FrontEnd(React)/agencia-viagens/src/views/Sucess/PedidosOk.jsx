@@ -1,16 +1,22 @@
 import React from "react";
+import ButtonHome from "../../components/ButtonHome";
+import ImageSucess from "../../components/ImageSuccess";
 
 export default function PedidosOk(){
     return(
 
-<div>
+<div className="container text-center py-5">
     <h1>
-        Cadastro efetuado com sucesso! 
+        Pedido efetuado com sucesso!
     </h1>
-
-    <h1>Deseja realizar um pedido? Clique abaixo</h1>
+    <h1>Obrigado!</h1>
+    <ImageSucess/>
+    <ButtonHome/>
 </div>
 
 
     )
 }
+
+
+    

@@ -1,4 +1,4 @@
-/* ModeloLogico: */
+/* Lógico_1: */
 
 CREATE TABLE Cliente (
     IdCliente Long PRIMARY KEY,
@@ -34,19 +34,15 @@ CREATE TABLE LocalPromo (
 CREATE TABLE Suporte (
     IdSuporte Long PRIMARY KEY,
     Mensagem nvarchar(300),
+    DataEnvio Date,
     fk_Cliente_IdCliente Long
 );
 
 CREATE TABLE ItemPedido (
     IdItem Long PRIMARY KEY,
     fk_Pedido_IdPedido Long,
-    fk_Local_IdLocal Long
-);
-
-CREATE TABLE ItemPedidoPromo (
-    IdItemPromo Long PRIMARY KEY,
-    fk_LocalPromo_IdLocalPromo Long,
-    fk_Pedido_IdPedido Long
+    fk_Local_IdLocal Long,
+    fk_LocalPromo_IdLocalPromo Long
 );
  
 ALTER TABLE Pedido ADD CONSTRAINT FK_Pedido_2
@@ -69,12 +65,7 @@ ALTER TABLE ItemPedido ADD CONSTRAINT FK_ItemPedido_3
     REFERENCES Local (IdLocal)
     ON DELETE CASCADE;
  
-ALTER TABLE ItemPedidoPromo ADD CONSTRAINT FK_ItemPedidoPromo_2
+ALTER TABLE ItemPedido ADD CONSTRAINT FK_ItemPedido_4
     FOREIGN KEY (fk_LocalPromo_IdLocalPromo)
     REFERENCES LocalPromo (IdLocalPromo)
     ON DELETE CASCADE;
- 
-ALTER TABLE ItemPedidoPromo ADD CONSTRAINT FK_ItemPedidoPromo_3
-    FOREIGN KEY (fk_Pedido_IdPedido)
-    REFERENCES Pedido (IdPedido)
-    ON DELETE RESTRICT;
